@@ -45,9 +45,9 @@ def call(Map userConfigVariables=[:]) {
                 context.job = new Job(JobType.BUILD.value, this)
                 context.job.init(context.config)
 
-                // echoer.handler("StageFactory")
-                // context.factory = new StageFactory(script: this)
-                // context.factory.loadStages().each() { context.factory.add(it) }
+                echoer.handler("StageFactory")
+                context.factory = new StageFactory(script: this)
+                context.factory.loadStages().each() { context.factory.add(it) }
             }
 
             try {
@@ -75,7 +75,7 @@ def call(Map userConfigVariables=[:]) {
                 if (currentBuild.currentResult == 'SUCCESS') {
                     echoer.info("Build successfull.")
                 }
-                context.job.runStage('Notification', context, null)
+                // context.job.runStage('Notification', context, null)
                 context.job.runStage('Cleanup', context, null)
             }
 
