@@ -38,7 +38,7 @@ def call(Map userConfigVariables=[:]) {
         }
     }
 
-    node('!master') {
+    node('master') {
         try {
             context.job.runStage('Initialisation', context, null)
 
