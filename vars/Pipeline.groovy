@@ -17,11 +17,6 @@ def call(Map userConfigVariables=[:]) {
             image: 'jenkins/inbound-agent:latest'
             ),
         containerTemplate(
-            name: 'kaniko', 
-            image: 'gcr.io/kaniko-project/executor:v1.6.0-debug', 
-            command: 'cat'
-        ),
-        containerTemplate(
             name: 'python', 
             image: 'python:latest', 
             command: 'sleep', 
