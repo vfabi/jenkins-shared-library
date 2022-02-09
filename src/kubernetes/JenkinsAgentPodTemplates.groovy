@@ -84,6 +84,7 @@ public void mainTemplate(body) {
         }
 }
 
+
 public void dockerTemplate(body) {
     podTemplate(
         containers: [containerTemplate(name: 'docker', image: 'docker', command: 'sleep', args: '99d')],
@@ -93,6 +94,7 @@ public void dockerTemplate(body) {
         body.call()
     }
 }
+
 
 public void mavenTemplate(body) {
     podTemplate(

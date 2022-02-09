@@ -6,7 +6,7 @@ import pipelines.Job
 import pipelines.JobType
 import pipelines.GitInfo
 import pipelines.Parameters
-import kubernetes.AgentPodTemplates
+import kubernetes.JenkisAgentPodTemplates
 
 
 def call(Map userConfigVariables=[:]) {
@@ -177,26 +177,6 @@ def call(Map userConfigVariables=[:]) {
                 // context.job.runStage('Notification', context, null)
                 context.job.runStage('Cleanup', context, null)
             }
-
-
-            // stage('Get a Maven project') {
-            //     container('jnlp') {
-            //         stage('Shell Execution') {
-            //             sh '''
-            //             echo "Hello! I am executing shell"
-            //             '''
-            //         }
-            //     }
-            // }
-            // stage('Stage-2') {
-            //     container('python') {
-            //         stage('Run python') {
-            //             sh '''
-            //             echo "python -V"
-            //             '''
-            //         }
-            //     }
-            // }
 
         }
     }
