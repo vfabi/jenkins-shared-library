@@ -1,0 +1,25 @@
+---
+# JSL global, CI stages for release branches only. 
+release_stages_only:  # mandatory
+  - pushartifact
+  - builddocker
+  - buildecrdocker
+  - pushdocker
+
+
+# JSL global, environments list.
+environments:  # mandatory
+  - develop
+  - staging
+  - production
+
+
+# CI stages related variables.
+ci_stages:
+  sonar_server_installation_name: Sonarqube  # Jenkins -> Configure System -> SonarQube servers -> SonarQube installations -> <INSTANCE> -> Name
+  sonar_scanner_installation_name: SonarqubeScanner  # Jenkins -> Global Tool Configuration -> SonarQube Scanner -> <INSTANCE> -> Name
+
+
+# CD stages related variables.
+cd_stages:
+  infra_environment_name: sandbox
