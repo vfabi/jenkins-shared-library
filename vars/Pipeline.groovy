@@ -15,7 +15,18 @@ def call(Map userConfigVariables=[:]) {
         containerTemplate(
             name: 'jnlp', 
             image: 'jenkins/inbound-agent:latest'
-            )
+            ),
+        containerTemplate(
+            name: 'kaniko', 
+            image: 'gcr.io/kaniko-project/executor:v1.6.0-debug', 
+            command: 'cat'
+        ),
+        containerTemplate(
+            name: 'python', 
+            image: 'python:latest', 
+            command: 'sleep', 
+            args: '30d'
+        )
     ]) {
 
         node(POD_LABEL) {
@@ -24,6 +35,15 @@ def call(Map userConfigVariables=[:]) {
                     stage('Shell Execution') {
                         sh '''
                         echo "Hello! I am executing shell"
+                        '''
+                    }
+                }
+            }
+            stage('Stage-2') {
+                container('python') {
+                    stage('Run python') {
+                        sh '''
+                        echo "python -V"
                         '''
                     }
                 }
