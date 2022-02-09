@@ -12,5 +12,11 @@ class Preparation {
 
     void run(context) {
         script.echoer.info("stages.impl.ci.impl.preparation.Preparation")
+
+        container('python') {
+            sh """
+            python -V
+            """
+        }
     }
 }

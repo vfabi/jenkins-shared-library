@@ -61,9 +61,9 @@ def call(Map userConfigVariables=[:]) {
 
                 context.job.runStage('Info', context, null)
 
-                // context.config.job.stages.each() { stage ->
-                //     context.job.runStage(stage, context, 'main')
-                // }
+                context.config.job.stages.each() { stage ->
+                    context.job.runStage(stage, context, 'main')
+                }
             } catch (Exception ex) {
                 echoer.warning("Build failed.")
                 echoer.warning("Build fail reason: ${ex}")
