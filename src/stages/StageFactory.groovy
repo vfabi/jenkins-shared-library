@@ -21,6 +21,7 @@ class StageFactory {
         def dir = new File(res.nextElement().getFile())
         dir.eachDirRecurse() { directory ->
             directory.eachFile(FileType.FILES) { file ->
+                println "stages.impl.${directory.path.replace("${dir.path}/", "").replaceAll('/', '.')}."
                 classesList.push(Class.forName("stages.impl.${directory.path.replace("${dir.path}/", "").replaceAll('/', '.')}."
                         + file.name.substring(0, file.name.length() - 7)))
             }
