@@ -14,9 +14,7 @@ class Preparation {
         script.echoer.info("stages.impl.ci.impl.preparation.Preparation")
 
         script.container('python') {
-            sh """
-            python -V
-            """
+            script.sh("python -V")
         }
     }
 }
