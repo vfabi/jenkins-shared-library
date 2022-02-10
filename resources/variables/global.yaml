@@ -8,10 +8,10 @@ release_stages_only:  # mandatory
 
 
 # JSL global, environments list.
-environments:  # mandatory
-  - develop
-  - staging
-  - production
+# environments:
+#   - develop
+#   - staging
+#   - production
 
 
 # JSL global, Kubernetes clusters list.
