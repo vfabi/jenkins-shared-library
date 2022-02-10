@@ -11,7 +11,7 @@ import stages.impl.ci.Stage
 import stages.impl.ci.ProjectType
 
 
-@Stage(name = "integration", buildTool = ["any"], type = [ProjectType.APPLICATION, ProjectType.LIBRARY, ProjectType.AUTOTESTS])
+@Stage(name = "cicddashboard", buildTool = ["any"], type = [ProjectType.APPLICATION, ProjectType.LIBRARY, ProjectType.AUTOTESTS])
 class CICDdashboard {
     Script script
 
