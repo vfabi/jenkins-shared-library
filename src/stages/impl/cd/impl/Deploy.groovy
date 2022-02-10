@@ -17,7 +17,7 @@ class Deploy {
                 id: 'inputDeploy',
                 message: "Do you want to deploy to ${context.config.job.deployKubernetesCluster} Kubernetes cluster?",
                 ok: 'Yes',
-                submitter: 'admin', 
+                submitter: 'vfabiianskyi,max', 
                 submitterParameter: 'deployApprover'
             )
         }
