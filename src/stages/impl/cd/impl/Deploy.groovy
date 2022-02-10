@@ -16,7 +16,9 @@ class Deploy {
             script.input(
                 id: 'inputDeploy',
                 message: "Do you want to deploy to ${context.config.job.deployKubernetesCluster} Kubernetes cluster?",
-                ok: 'Yes'
+                ok: 'Yes',
+                submitter: 'admin', 
+                submitterParameter: 'deployApprover'
             )
         }
 
