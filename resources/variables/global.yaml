@@ -30,3 +30,7 @@ ci_stages:
 # CD stages related variables.
 cd_stages:
   infra_environment_name: sandbox
+  deploy_approvers:
+    k8s-dev:
+      - max
+      - ishtvan
