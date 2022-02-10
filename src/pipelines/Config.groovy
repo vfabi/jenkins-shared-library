@@ -57,7 +57,7 @@ class Config {
         this.job['projectType'] = userConfigVariables.projectType  // TODO: if not use default value.
         this.job['releaseBranches'] = userConfigVariables.releaseBranches // TODO: if not use default value.
         this.job['deployAppRelease'] = getParameterValue("DEPLOY_APP_RELEASE")
-        this.job['deployEnvironment'] = getParameterValue("DEPLOY_ENVIRONMENT")
+        this.job['deployKubernetesCluster'] = getParameterValue("DEPLOY_KUBERNETES_CLUSTER")
         this.job['isRelease'] = userConfigVariables.releaseBranches.contains(getParameterValue("BRANCH_NAME"))
     }
 

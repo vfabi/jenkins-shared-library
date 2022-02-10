@@ -18,14 +18,16 @@ class Parameters {
         Generate pipeline's parameters block.
         */
 
-        def environments = config.global.environments
-        environments.add(0, userConfigVariables.defaultDeployEnvironment)  // TODO: add check for user defined ${defaultDeployEnvironment} variable exists in ${config.global.environments}.
+        // def environments = config.global.environments
+        def kubernetes_clusters = config.global.kubernetes_clusters
+        // environments.add(0, userConfigVariables.defaultDeployEnvironment)  // TODO: add check for user defined ${defaultDeployEnvironment} variable exists in ${config.global.environments}.
+        kubernetes_clusters.add(0, userConfigVariables.defaultDeployKubernetesCluster)  // TODO: add check for user defined ${defaultDeployKubernetesCluster} variable exists in ${config.global.kubernetes_clusters}.
 
         script.properties([
             script.parameters([
                 script.booleanParam(name: 'UPDATE_PARAMETERS', defaultValue: false, description: 'Force update parameters block on changes.'),
                 script.string(name: 'DEPLOY_APP_RELEASE', defaultValue: '', description: 'Application release to deploy.'),
-                script.choice(name: 'DEPLOY_ENVIRONMENT', choices: environments, description: 'Environment name to deploy application.')
+                script.choice(name: 'DEPLOY_KUBERNETES_CLUSTER', choices: kubernetes_clusters, description: 'Kubernetes cluster name to deploy application.')
             ])
         ])
 

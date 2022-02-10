@@ -13,6 +13,9 @@ class Cleanup {
     void run(context) {
         script.echoer.info("Stage implementation Cleanup")
 
+        script.echoer.info("Save artifacts.")
+        script.archiveArtifacts artifacts: 'artifacts/*', fingerprint: true
+
         script.echoer.info("Workspace cleanup.")
         script.cleanWs()
         //TODO: docker images cleanup

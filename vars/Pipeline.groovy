@@ -175,6 +175,7 @@ def call(Map userConfigVariables=[:]) {
                     echoer.info("Build successfull.")
                 }
                 // context.job.runStage('Notification', context, null)
+                context.job.runStage('CICDdashboard', context, null)
                 context.job.runStage('Cleanup', context, null)
             }
 

@@ -14,6 +14,13 @@ environments:  # mandatory
   - production
 
 
+# JSL global, Kubernetes clusters list.
+kubernetes_clusters:  # mandatory
+  - k8s-dev
+  - k8s-staging
+  - k8s-prod
+
+
 # CI stages related variables.
 ci_stages:
   sonar_server_installation_name: Sonarqube  # Jenkins -> Configure System -> SonarQube servers -> SonarQube installations -> <INSTANCE> -> Name

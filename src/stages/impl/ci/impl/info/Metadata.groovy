@@ -25,7 +25,7 @@ class Metadata {
         + "Job config isRelease: ${context.config.job.isRelease}\n"
         + "Job config releaseTag: ${context.config.job.releaseTag}\n"
         + "Job config deployAppRelease: ${context.config.job.deployAppRelease}\n"
-        + "Job config deployEnvironment: ${context.config.job.deployEnvironment}\n"
+        + "Job config deployKubernetesCluster: ${context.config.job.deployKubernetesCluster}\n"
         + "Job config triggerCause: ${context.config.jobinit.triggerCause}")
     }
 }

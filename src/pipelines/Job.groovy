@@ -44,8 +44,8 @@ class Job {
             // For release branch
             if (context.config.job.releaseBranches.contains(context.git.gitBranch)) {
                 if (stageName.toLowerCase().startsWith('deploy')) {
-                    // Run CDStage only if deployEnvironment is set
-                    if (context.config.job.deployEnvironment) {
+                    // Run CDStage only if deployKubernetesCluster is set
+                    if (context.config.job.deployKubernetesCluster) {
                         runCDStage(stageName, context)
                     }
                 }
