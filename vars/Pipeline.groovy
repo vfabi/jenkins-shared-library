@@ -12,7 +12,7 @@ import kubernetes.JenkisAgentPodTemplates
 def call(Map userConfigVariables=[:]) {
     def context = [:]
 
-    podTemplate = new AgentPodTemplates()
+    podTemplate = new JenkisAgentPodTemplates()
 
 
     // podTemplate(
