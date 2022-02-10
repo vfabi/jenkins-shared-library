@@ -18,6 +18,5 @@ class Cleanup {
 
         script.echoer.info("Workspace cleanup.")
         script.cleanWs()
-        //TODO: docker images cleanup
     }
 }

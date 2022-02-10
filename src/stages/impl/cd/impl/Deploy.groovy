@@ -11,5 +11,15 @@ class Deploy {
 
     void run(context) {
         script.echoer.info("Stage implementation Deploy")
+
+        // Integration  -->
+        // Update artifacts for CDCDdashboard stage.
+        script.unstash 'cicd-dashboard-data'
+        script.sh("echo deploy_success=true >> artifacts/cicd-dashboard-data.txt")
+        script.sh("echo deploy_environment=${context.config.job.deployKubernetesCluster} >> artifacts/cicd-dashboard-data.txt")
+        script.sh("echo deploy_namespace=${context.config.project.namespace} >> artifacts/cicd-dashboard-data.txt")
+        script.sh("echo deploy_apprelease=${context.config.job.releaseTag} >> artifacts/cicd-dashboard-data.txt")
+        script.stash includes: 'artifacts/cicd-dashboard-data.txt', name: 'cicd-dashboard-data'
+        // Integration <--
     }
 }

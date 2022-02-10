@@ -89,7 +89,7 @@ class Config {
     }
 
     def getEnvVariables() {
-        def envName = this.job['deployEnvironment']
+        def envName = this.job['deployKubernetesCluster']
         def yamlFilePath = "variables/environments/${envName}.yaml"
         try {
             def yamlFile = script.libraryResource(yamlFilePath)
