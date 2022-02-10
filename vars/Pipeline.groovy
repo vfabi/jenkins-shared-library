@@ -6,13 +6,13 @@ import pipelines.Job
 import pipelines.JobType
 import pipelines.GitInfo
 import pipelines.Parameters
-import kubernetes.JenkisAgentPodTemplates
+import kubernetes.JenkinsAgentPodTemplates
 
 
 def call(Map userConfigVariables=[:]) {
     def context = [:]
 
-    podTemplate = new JenkisAgentPodTemplates()
+    podTemplate = new JenkinsAgentPodTemplates()
 
 
     // podTemplate(
