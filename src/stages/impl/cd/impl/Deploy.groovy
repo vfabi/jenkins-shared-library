@@ -12,8 +12,8 @@ class Deploy {
     void run(context) {
         script.echoer.info("Stage implementation Deploy")
 
-        timeout(time: 15, unit: "MINUTES") {
-            input message: 'Do you want to approve the deploy in production?', ok: 'Yes'
+        script.timeout(time: 15, unit: "MINUTES") {
+            script.input message: 'Do you want to approve the deploy in production?', ok: 'Yes'
         }
 
         // Integration  -->
