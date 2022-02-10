@@ -13,7 +13,11 @@ class Deploy {
         script.echoer.info("Stage implementation Deploy")
 
         script.timeout(time: 15, unit: "MINUTES") {
-            script.input message: 'Do you want to approve the deploy in production?', ok: 'Yes'
+            script.input(
+                id: 'inputDeploy',
+                message: "Do you want to deploy to ${context.config.job.deployKubernetesCluster} Kubernetes cluster?",
+                ok: 'Yes'
+            )
         }
 
         // Integration  -->
