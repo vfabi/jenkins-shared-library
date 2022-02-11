@@ -26,7 +26,7 @@ class GitMetadata {
         + "Job config releaseBranches: ${context.config.job.releaseBranches}\n"
         + "Job config isRelease: ${context.config.job.isRelease}\n"
         + "Job config releaseTag: ${context.config.job.releaseTag}\n"
-        + "Job config deployAppRelease: ${context.config.job.deployAppRelease}\n"
+        + "Job config buildAppGitBranch: ${context.config.job.buildAppGitBranch}\n"
         + "Job config deployKubernetesCluster: ${context.config.job.deployKubernetesCluster}\n"
         + "Job config triggerCause: ${context.config.jobinit.triggerCause}")
     }

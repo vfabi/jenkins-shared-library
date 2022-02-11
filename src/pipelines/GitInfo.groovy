@@ -26,7 +26,7 @@ class GitInfo {
 
     def init() {
         this.gitBranch = getParameterValue("BRANCH_NAME")
-        this.gitBranch2 = script.sh(returnStdout: true, script: 'git name-rev --name-only HEAD').split("/")[2].trim().replace("/", "-")
+        this.gitBranch2 = script.sh(returnStdout: true, script: 'git name-rev --name-only HEAD').replace("/", "-").trim()
         this.gitCommitHash = script.sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
         this.gitCommitHashShort = script.sh(returnStdout: true, script: 'git log -1 --pretty=%h').trim()
         this.gitAuthor = script.sh(returnStdout: true, script: "git --no-pager show -s --format='%an' ${this.gitCommitHash}").trim().replace("(", "").replace(")", "")
