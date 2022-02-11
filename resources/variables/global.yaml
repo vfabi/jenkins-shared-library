@@ -32,5 +32,5 @@ cd_stages:
   infra_environment_name: sandbox
   deploy_approvers:
     k8s-dev:
-      - max
-      - ishtvan
+      - somebodyid
+      - vfabiianskyi
