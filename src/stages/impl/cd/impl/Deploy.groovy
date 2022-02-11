@@ -40,7 +40,7 @@ class Deploy {
                     submitterParameter: 'deployApprover'
                 )
             }
-        )
+        }
 
 
         // Deploy procedure
