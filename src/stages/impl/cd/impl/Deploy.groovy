@@ -20,17 +20,16 @@ class Deploy {
         if (!appSupportedKubernetesClusters.contains(deployKubernetesCluster)) {
             script.error("Application unsupported Kubernetes cluster selected (${deployKubernetesCluster}). Supported Kubernetes clusters are: ${appSupportedKubernetesClusters}.")
         }
-        script.echoer.info("Will be deployed to Kubernetes cluster: ${deployKubernetesCluster}.")
 
 
         // Deploy approval
         def deployApprovers = context.config.global.cd_stages.deploy_approvers["${deployKubernetesCluster}"].toString().replace("[", "").replace("]", "").trim()
         if (deployApprovers != "null") {
-            script.echoer.input("Please approve deploy to ${deployKubernetesCluster} Kubernetes cluster. Can be approved by ${deployApprovers} or any from Jenkins admins.")
+            script.echoer.input("Please approve deploy to ${deployKubernetesCluster} Kubernetes cluster. Can be approved by ${deployApprovers} or any Jenkins admin.")
             script.timeout(time: 15, unit: "MINUTES") {
                 script.input(
                     id: 'inputDeploy',
-                    message: "Do you want to deploy to ${deployKubernetesCluster} Kubernetes cluster?",
+                    message: "Do you want deploy to ${deployKubernetesCluster} Kubernetes cluster?",
                     ok: 'Yes',
                     submitter: deployApprovers, 
                     submitterParameter: 'deployApprover'
@@ -44,6 +43,8 @@ class Deploy {
         def kubernetesNamespace = context.config.project.kubernetesNamespace
         def appName = context.config.project.appName
         def appReleaseTag = context.config.job.releaseTag
+
+        script.echoer.info("Will be deployed to Kubernetes cluster: ${deployKubernetesCluster}.")
 
         if (kubernetesCloud == "gcp") {
             def appDockerImageURL = "${context.config.global.gcpDockerRegistry}/${appName}:${appReleaseTag}"
