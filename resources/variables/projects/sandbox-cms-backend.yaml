@@ -6,5 +6,6 @@ kubernetesClusters:
   - av-cms-k8s-dev
   - av-cms-k8s-staging
   - av-cms-k8s
+kubernetesDefaultCluster: "av-cms-k8s-dev"
 kubernetesNamespace: "cms"
 kubernetesCloud: "gcp"

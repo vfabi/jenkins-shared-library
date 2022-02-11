@@ -11,7 +11,7 @@ class BuildDocker {
     Script script
 
     void run(context) {
-        script.echoer.info("sStage implementation BuildDocker")
+        script.echoer.info("Stage implementation BuildDocker")
 
         def dockerRegistryCloud = context.config.project.dockerRegistryCloud
         def appName = context.config.project.appName

@@ -18,10 +18,8 @@ class Parameters {
         Generate pipeline's parameters block.
         */
 
-        // def environments = config.global.environments
         def kubernetes_clusters = config.global.kubernetes_clusters
-        // environments.add(0, userConfigVariables.defaultDeployEnvironment)  // TODO: add check for user defined ${defaultDeployEnvironment} variable exists in ${config.global.environments}.
-        kubernetes_clusters.add(0, userConfigVariables.defaultDeployKubernetesCluster)  // TODO: add check for user defined ${defaultDeployKubernetesCluster} variable exists in ${config.global.kubernetes_clusters}.
+        kubernetes_clusters.add(0, config.project.kubernetesDefaultCluster)  // TODO: add check for user defined ${defaultDeployKubernetesCluster} variable exists in ${config.global.kubernetes_clusters}.
 
         script.properties([
             script.parameters([

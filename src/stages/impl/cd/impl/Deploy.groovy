@@ -17,7 +17,7 @@ class Deploy {
 
 
         // Checks.
-        if (deployKubernetesCluster !in appSupportedKubernetesClusters) {
+        if (!appSupportedKubernetesClusters.contains(deployKubernetesCluster)) {
             script.error("Application unsupported Kubernetes cluster selected (${deployKubernetesCluster}). Supported Kubernetes clusters are: ${appSupportedKubernetesClusters}.")
         }
 
