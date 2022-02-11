@@ -15,10 +15,7 @@ class Deploy {
         def appSupportedKubernetesClusters = context.config.project.kubernetesClusters
         def deployKubernetesCluster = context.config.job.deployKubernetesCluster
 
-        // debug
-        script.echoer.info("appSupportedKubernetesClusters: ${appSupportedKubernetesClusters}")
-        script.echoer.info("deployKubernetesCluster: ${deployKubernetesCluster}")
-        // debug
+        script.echoer.info("Will be deployed to Kubernetes cluster: ${deployKubernetesCluster}.")
 
 
         // Checks.

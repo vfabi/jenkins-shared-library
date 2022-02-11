@@ -17,6 +17,9 @@ kubernetes_clusters:  # mandatory
   - av-cms-k8s-dev
   - av-cms-k8s-staging
   - av-cms-k8s
+  - k8s-prod
+  - k8s-dev
+  - k8s-staging
 
 
 # CI stages related variables.
