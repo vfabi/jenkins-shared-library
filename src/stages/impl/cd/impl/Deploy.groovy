@@ -13,7 +13,7 @@ class Deploy {
         script.echoer.info("Stage implementation Deploy")
 
         // Deploy approval.
-        def deployApprovers = context.config.global.cd_stages.deploy_approvers["${context.config.job.deployKubernetesCluster}"]
+        def deployApprovers = context.config.global.cd_stages.deploy_approvers["${context.config.job.deployKubernetesCluster}"].replaceAll("[\\[\\](){}]","")
 
         script.timeout(time: 15, unit: "MINUTES") {
             script.input(
