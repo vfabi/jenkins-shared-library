@@ -18,7 +18,7 @@ class Deploy {
         script.timeout(time: 15, unit: "MINUTES") {
             script.input(
                 id: 'inputDeploy',
-                message: "Do you want to deploy to ${context.config.job.deployKubernetesCluster} Kubernetes cluster? Can be approved by ${deployApprovers} or any from Jenkins admins.",
+                message: "Do you want to deploy to ${context.config.job.deployKubernetesCluster} Kubernetes cluster?\n Can be approved by ${deployApprovers} or any from Jenkins admins.",
                 ok: 'Yes',
                 submitter: deployApprovers, 
                 submitterParameter: 'deployApprover'

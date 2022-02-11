@@ -24,6 +24,7 @@ class Preparation {
         } catch(Exception e) {}
         // Integration. CICDdashboard. <--
 
+
         // script.container('python') {
         //     script.sh("python -V")
         // }
