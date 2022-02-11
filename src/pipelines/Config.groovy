@@ -56,9 +56,10 @@ class Config {
         this.job['projectMetaName'] = this.job['projectName'].toLowerCase().trim().replace("-", "").replace("_", "").replace("/", "")
         this.job['projectType'] = userConfigVariables.projectType  // TODO: if not use default value.
         this.job['releaseBranches'] = userConfigVariables.releaseBranches // TODO: if not use default value.
-        this.job['deployAppRelease'] = getParameterValue("DEPLOY_APP_RELEASE")
-        this.job['deployKubernetesCluster'] = getParameterValue("DEPLOY_KUBERNETES_CLUSTER")
         this.job['isRelease'] = userConfigVariables.releaseBranches.contains(getParameterValue("BRANCH_NAME"))
+        // From Parameters
+        this.job['buildAppGitBranch'] = getParameterValue("BUILD_APP_GIT_BRANCH")
+        this.job['deployKubernetesCluster'] = getParameterValue("DEPLOY_KUBERNETES_CLUSTER")
     }
 
     def getJobinitVariables() {
