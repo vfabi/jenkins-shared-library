@@ -14,7 +14,7 @@ class Deploy {
 
         // Deploy approval.
         def deployApprovers = context.config.global.cd_stages.deploy_approvers["${context.config.job.deployKubernetesCluster}"].toString().replace("[", "").replace("]", "").trim()
-        script.echoer.info("Please approve deploy to ${context.config.job.deployKubernetesCluster} Kubernetes cluster. Can be approved by ${deployApprovers} or any from Jenkins admins.")
+        script.echoer.notice("Please approve deploy to ${context.config.job.deployKubernetesCluster} Kubernetes cluster. Can be approved by ${deployApprovers} or any from Jenkins admins.")
         script.timeout(time: 15, unit: "MINUTES") {
             script.input(
                 id: 'inputDeploy',
