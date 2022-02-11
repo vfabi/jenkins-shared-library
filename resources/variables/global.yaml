@@ -27,9 +27,11 @@ ci_stages:
 
 # CD stages related variables.
 cd_stages:
-  infra_environment_name: sandbox
   deploy_approvers:
-    k8s-dev:
+    av-cms-k8s-staging:
+      - somebodyid
+      - vfabiianskyi
+    av-cms-k8s:
       - somebodyid
       - vfabiianskyi
 
