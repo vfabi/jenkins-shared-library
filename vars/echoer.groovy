@@ -28,7 +28,7 @@ def notice(message) {
 }
 
 def input(message) {
-    echo "\u001B[35mNOTICE: ${message} \u001B[0m"
+    echo "\u001B[35mINPUT: ${message} \u001B[0m"
 }
 
 def debug(message) {
