@@ -12,7 +12,7 @@ class Deploy {
     void run(context) {
         script.echoer.info("Stage implementation Deploy")
 
-        def appSupportedKubernetesClusters = context.config.job.kubernetesClusters
+        def appSupportedKubernetesClusters = context.config.project.kubernetesClusters
         def deployKubernetesCluster = context.config.job.deployKubernetesCluster
 
         // debug
