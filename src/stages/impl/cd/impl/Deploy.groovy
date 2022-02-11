@@ -15,6 +15,11 @@ class Deploy {
         def appSupportedKubernetesClusters = context.config.job.kubernetesClusters
         def deployKubernetesCluster = context.config.job.deployKubernetesCluster
 
+        // debug
+        script.echoer.info("appSupportedKubernetesClusters: ${appSupportedKubernetesClusters}")
+        script.echoer.info("deployKubernetesCluster: ${deployKubernetesCluster}")
+        // debug
+
 
         // Checks.
         if (!appSupportedKubernetesClusters.contains(deployKubernetesCluster)) {
