@@ -14,12 +14,14 @@ class Preparation {
         script.echoer.info("Stage implementation Preparation")
 
         // Integration. CICDdashboard. -->
-        script.sh("mkdir artifacts && touch artifacts/cicd-dashboard-data.txt")
-        script.sh("echo git_branch=${context.git.gitBranch} >> artifacts/cicd-dashboard-data.txt")
-        script.sh("echo git_commit=${context.git.gitCommitHashShort} >> artifacts/cicd-dashboard-data.txt")
-        script.sh("echo git_author=${context.git.gitAuthor} >> artifacts/cicd-dashboard-data.txt")
-        script.sh("echo git_author_email=${context.git.gitAuthorEmail} >> artifacts/cicd-dashboard-data.txt")
-        script.stash includes: 'artifacts/cicd-dashboard-data.txt', name: 'cicd-dashboard-data'
+        try {
+            script.sh("mkdir artifacts && touch artifacts/cicd-dashboard-data.txt")
+            script.sh("echo git_branch=${context.git.gitBranch} >> artifacts/cicd-dashboard-data.txt")
+            script.sh("echo git_commit=${context.git.gitCommitHashShort} >> artifacts/cicd-dashboard-data.txt")
+            script.sh("echo git_author=${context.git.gitAuthor} >> artifacts/cicd-dashboard-data.txt")
+            script.sh("echo git_author_email=${context.git.gitAuthorEmail} >> artifacts/cicd-dashboard-data.txt")
+            script.stash includes: 'artifacts/cicd-dashboard-data.txt', name: 'cicd-dashboard-data'
+        } catch(Exception e) {}
         // Integration. CICDdashboard. <--
 
         // script.container('python') {
