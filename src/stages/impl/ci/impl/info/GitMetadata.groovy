@@ -7,10 +7,12 @@ import stages.impl.ci.ProjectType
 
 
 @Stage(name = "info", buildTool = ["any"], type = [ProjectType.APPLICATION, ProjectType.LIBRARY, ProjectType.AUTOTESTS])
-class Metadata {
+class GitMetadata {
     Script script
 
     void run(context) {
+        script.echoer.info("Stage implementation Info.GitMetadata")
+
         script.echoer.info("\nGit commit branch: ${context.git.gitBranch}\n"
         + "Git commit hash: ${context.git.gitCommitHash}\n"
         + "Git commit hash short: ${context.git.gitCommitHashShort}\n"

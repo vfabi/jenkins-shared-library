@@ -11,10 +11,19 @@ class Preparation {
     Script script
 
     void run(context) {
-        script.echoer.info("stages.impl.ci.impl.preparation.Preparation")
+        script.echoer.info("Stage implementation Preparation")
 
-        script.container('python') {
-            script.sh("python -V")
-        }
+        // Integration. CICDdashboard. -->
+        script.sh("mkdir artifacts && touch artifacts/cicd-dashboard-data.txt")
+        script.sh("echo git_branch=${context.git.gitBranch} >> artifacts/cicd-dashboard-data.txt")
+        script.sh("echo git_commit=${context.git.gitCommitHashShort} >> artifacts/cicd-dashboard-data.txt")
+        script.sh("echo git_author=${context.git.gitAuthor} >> artifacts/cicd-dashboard-data.txt")
+        script.sh("echo git_author_email=${context.git.gitAuthorEmail} >> artifacts/cicd-dashboard-data.txt")
+        script.stash includes: 'artifacts/cicd-dashboard-data.txt', name: 'cicd-dashboard-data'
+        // Integration. CICDdashboard. <--
+
+        // script.container('python') {
+        //     script.sh("python -V")
+        // }
     }
 }
