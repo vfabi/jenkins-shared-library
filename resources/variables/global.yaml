@@ -2,8 +2,6 @@
 # JSL global, CI stages for release branches only. 
 release_stages_only:  # mandatory
   - pushartifact
-  - builddocker
-  - buildecrdocker
   - pushdocker
 
 
@@ -16,9 +14,9 @@ release_stages_only:  # mandatory
 
 # JSL global, Kubernetes clusters list.
 kubernetes_clusters:  # mandatory
-  - k8s-dev
-  - k8s-staging
-  - k8s-prod
+  - av-cms-k8s-dev
+  - av-cms-k8s-staging
+  - av-cms-k8s
 
 
 # CI stages related variables.
@@ -34,3 +32,8 @@ cd_stages:
     k8s-dev:
       - somebodyid
       - vfabiianskyi
+
+
+# Other
+gcpDockerRegistry: "us.gcr.io/av-cms-293206"
+awsDockerRegistry: "623994936604.dkr.ecr.us-east-1.amazonaws.com"

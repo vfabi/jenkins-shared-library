@@ -21,6 +21,18 @@ public void mainTemplate(body) {
                   - name: GOOGLE_APPLICATION_CREDENTIALS
                     value: /secret/av-cms-293206-90534c67e5c6.json
 
+              - name: awscli
+                image: us.gcr.io/av-cms-293206/aws-kubectl:0.0.1
+                imagePullPolicy: Always
+                command:
+                - cat
+                tty: true
+                volumeMounts:
+                  - name: docker-config
+                    mountPath: /kaniko/.docker
+                  - name: aws-secret
+                    mountPath: /root/.aws/
+
               - name: kaniko-gcp
                 image: gcr.io/kaniko-project/executor:v1.6.0-debug
                 imagePullPolicy: Always

@@ -51,9 +51,10 @@ class Config {
         def projectNameParcedList = getParameterValue("JOB_NAME").tokenize("/")
         projectNameParcedList.removeAt(projectNameParcedList.size() - 1)
         this.job['projectName'] = projectNameParcedList.join("/")  // Example: 'apps/application-1'.
+        this.job['projectMetaName'] = this.job['projectName'].toLowerCase().trim().replace("-", "").replace("_", "").replace("/", "")
+        // From user configured Jenkinsfile
         this.job['buildTool'] = userConfigVariables.buildTool  // TODO: if not use default value.
         this.job['stages'] = userConfigVariables.stages  // TODO: if not use default value.
-        this.job['projectMetaName'] = this.job['projectName'].toLowerCase().trim().replace("-", "").replace("_", "").replace("/", "")
         this.job['projectType'] = userConfigVariables.projectType  // TODO: if not use default value.
         this.job['releaseBranches'] = userConfigVariables.releaseBranches // TODO: if not use default value.
         this.job['isRelease'] = userConfigVariables.releaseBranches.contains(getParameterValue("BRANCH_NAME"))
@@ -101,13 +102,14 @@ class Config {
     }
 
     def getReleaseTagVariable(context) {
-        def tagPrefix = "v0.1.0"
-        if (this.job['isRelease']) {
-            this.job['releaseTag'] = "${tagPrefix}-${context.git.gitCommitHashShort}"
-        }
-        else {
-            this.job['releaseTag'] = null
-        }
+        // def tagPrefix = "v0.1.0"
+        // if (this.job['isRelease']) {
+        //     this.job['releaseTag'] = "${tagPrefix}-${context.git.gitCommitHashShort}"
+        // }
+        // else {
+        //     this.job['releaseTag'] = null
+        // }
+        this.job['releaseTag'] = "${context.git.gitBranch2}-${context.git.gitCommitHashShort}"
     }
 
     def setJobRuntimeVariables() {

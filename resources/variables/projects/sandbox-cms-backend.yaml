@@ -1,0 +1,10 @@
+# project_name: "sandbox-cms-backend"
+appName: "videocms-backend"
+gitRepo: "git@bitbucket.org:aniviewteam/videocms.git"
+dockerRegistryCloud: "gcp"
+kubernetesClusters:
+  - av-cms-k8s-dev
+  - av-cms-k8s-staging
+  - av-cms-k8s
+kubernetesNamespace: "cms"
+kubernetesCloud: "gcp"
