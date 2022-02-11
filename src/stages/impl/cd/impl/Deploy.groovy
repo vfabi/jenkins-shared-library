@@ -42,7 +42,7 @@ class Deploy {
         def appName = context.config.project.appName
         def appReleaseTag = context.config.job.releaseTag
 
-        if kubernetesCloud == "gcp" {
+        if (kubernetesCloud == "gcp") {
             def appDockerImageURL = "${context.config.global.gcpDockerRegistry}/${appName}:${appReleaseTag}"
 
             script.container('gcloud') {

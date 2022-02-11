@@ -19,13 +19,13 @@ class BuildDocker {
         def gcpImageTag = "${context.config.global.gcpDockerRegistry}/${appName}:${appReleaseTag}"
         def awsImageTag = "${context.config.global.awsDockerRegistry}/${appName}:${appReleaseTag}"
 
-        if dockerRegistryCloud == "gcp" {
+        if (dockerRegistryCloud == "gcp") {
             script.container('kaniko-gcp') {
                 script.sh("/kaniko/executor --dockerfile `pwd`/Dockerfile --context `pwd` --cache=true --cache-dir=/cache --single-snapshot --destination ${context.config.global.gcpDockerRegistry}/${appName}:latest --destination ${gcpImageTag} --build-arg APP_VERSION_ARG=${appName}:${appReleaseTag}")
             }
         }
 
-        if dockerRegistryCloud == "aws" {
+        if (dockerRegistryCloud == "aws") {
             script.container('kaniko-aws') {
                 script.sh("/kaniko/executor --dockerfile `pwd`/Dockerfile --context `pwd` --cache=true --cache-dir=/cache --single-snapshot --destination=${context.config.global.awsDockerRegistry}/${appName}:latest --destination ${awsImageTag} --build-arg APP_VERSION_ARG=${appName}:${appReleaseTag}")
             }
