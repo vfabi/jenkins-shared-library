@@ -15,16 +15,15 @@ class Deploy {
         def appSupportedKubernetesClusters = context.config.project.kubernetesClusters
         def deployKubernetesCluster = context.config.job.deployKubernetesCluster
 
-        script.echoer.info("Will be deployed to Kubernetes cluster: ${deployKubernetesCluster}.")
 
-
-        // Checks.
+        // Checks
         if (!appSupportedKubernetesClusters.contains(deployKubernetesCluster)) {
             script.error("Application unsupported Kubernetes cluster selected (${deployKubernetesCluster}). Supported Kubernetes clusters are: ${appSupportedKubernetesClusters}.")
         }
+        script.echoer.info("Will be deployed to Kubernetes cluster: ${deployKubernetesCluster}.")
 
 
-        // Deploy approval.
+        // Deploy approval
         def deployApprovers = context.config.global.cd_stages.deploy_approvers["${deployKubernetesCluster}"].toString().replace("[", "").replace("]", "").trim()
         if (deployApprovers != "null") {
             script.echoer.input("Please approve deploy to ${deployKubernetesCluster} Kubernetes cluster. Can be approved by ${deployApprovers} or any from Jenkins admins.")
