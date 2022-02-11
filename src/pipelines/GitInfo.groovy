@@ -25,7 +25,7 @@ class GitInfo {
     }
 
     def init() {
-        this.gitBranch = getParameterValue("BRANCH_NAME")
+        this.gitBranch = getParameterValue("BRANCH_NAME").trim().replace("/", "-")
         this.gitBranch2 = script.sh(returnStdout: true, script: 'git name-rev --name-only HEAD').trim().replace("/", "-")
         this.gitCommitHash = script.sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
         this.gitCommitHashShort = script.sh(returnStdout: true, script: 'git log -1 --pretty=%h').trim()

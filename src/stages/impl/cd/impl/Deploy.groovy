@@ -62,8 +62,8 @@ class Deploy {
         script.unstash 'cicd-dashboard-data'
         script.sh("echo deploy_success=true >> artifacts/cicd-dashboard-data.txt")
         script.sh("echo deploy_environment=${deployKubernetesCluster} >> artifacts/cicd-dashboard-data.txt")
-        script.sh("echo deploy_namespace=${context.config.project.namespace} >> artifacts/cicd-dashboard-data.txt")
-        script.sh("echo deploy_apprelease=${context.config.job.releaseTag} >> artifacts/cicd-dashboard-data.txt")
+        script.sh("echo deploy_namespace=${kubernetesNamespace} >> artifacts/cicd-dashboard-data.txt")
+        script.sh("echo deploy_apprelease=${appReleaseTag} >> artifacts/cicd-dashboard-data.txt")
         script.stash includes: 'artifacts/cicd-dashboard-data.txt', name: 'cicd-dashboard-data'
         // Integration. CICDdashboard. <--
     }
