@@ -25,9 +25,9 @@ class Parameters {
 
         script.properties([
             script.parameters([
-                script.booleanParam(name: 'UPDATE_PARAMETERS', defaultValue: false, description: 'Force update parameters block on changes.'),
-                script.string(name: 'DEPLOY_APP_RELEASE', defaultValue: '', description: 'Application release to deploy.'),
-                script.choice(name: 'DEPLOY_KUBERNETES_CLUSTER', choices: kubernetes_clusters, description: 'Kubernetes cluster name to deploy application.')
+                // script.booleanParam(name: 'UPDATE_PARAMETERS', defaultValue: false, description: 'Force update parameters block on changes.'),
+                script.string(name: 'APP_GIT_BRANCH', defaultValue: '', description: 'Application git branch to build.', required: true),
+                script.choice(name: 'DEPLOY_KUBERNETES_CLUSTER', choices: kubernetes_clusters, description: 'Kubernetes cluster to deploy application.')
             ])
         ])
 
