@@ -109,7 +109,8 @@ class Config {
         // else {
         //     this.job['releaseTag'] = null
         // }
-        this.job['releaseTag'] = "${context.git.gitBranch2}-${context.git.gitCommitHashShort}"
+        branchFixed = context.git.gitBranch.trim().replace("/", "-")
+        this.job['releaseTag'] = "${branchFixed}-${context.git.gitCommitHashShort}"
     }
 
     def setJobRuntimeVariables() {
